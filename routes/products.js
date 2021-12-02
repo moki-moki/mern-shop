@@ -10,6 +10,5 @@ const {
 router.route("/").get(getShowcaseProducts);
 router.route("/allProducts").get(getAllProducts);
 router.route("/:id").get(getSingleProduct);
-router.route("/static").get(getAllProductsStatic);
 
 module.exports = router;

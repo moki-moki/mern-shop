@@ -15,9 +15,7 @@ const app = express();
 app.use(express.json());
 
 // Routes
-app.get("/", (req, res) => {
-  res.send('<h1>Store APi</h1> <a href="/api/v1/products>Products route</a>');
-});
+// app.get("/", (req, res) => {});
 
 app.use("/api/products", productRouter);
 

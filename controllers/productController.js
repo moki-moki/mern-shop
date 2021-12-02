@@ -14,7 +14,7 @@ const getAllProducts = async (req, res) => {
     queryObj.category = category;
   }
 
-  // filter by price and rating
+  // filter by price and other inputs
   if (numericFilters) {
     const operatorMap = {
       ">": "$gt",
