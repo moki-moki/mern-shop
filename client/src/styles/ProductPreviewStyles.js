@@ -14,7 +14,6 @@ export const PreviewCardContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1em;
   align-items: center;
-
   width: 100%;
   height: 100%;
 `;

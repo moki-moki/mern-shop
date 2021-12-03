@@ -84,7 +84,7 @@ const getSingleProduct = async (req, res) => {
 // get showcase products
 const getShowcaseProducts = async (req, res) => {
   try {
-    const product = await Product.find({}).limit(10);
+    const product = await Product.find({}).limit(4);
     res.status(200).json({ msg: product });
   } catch (error) {
     console.error(error);

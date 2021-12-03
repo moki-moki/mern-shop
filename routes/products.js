@@ -2,7 +2,6 @@ const router = require("express").Router();
 
 const {
   getAllProducts,
-  getAllProductsStatic,
   getSingleProduct,
   getShowcaseProducts,
 } = require("../controllers/productController");

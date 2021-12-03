@@ -39,7 +39,7 @@ const ProductTeaser = ({ item }) => {
             </ProductTeaserCardText>
           )}
         </div>
-        <CardLink to="/">Buy</CardLink>
+        <CardLink to="/allProducts">Buy</CardLink>
         {item.sale ? <CardFeatured>Sale</CardFeatured> : null}
       </CardDesc>
     </Card>

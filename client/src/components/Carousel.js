@@ -10,7 +10,7 @@ import { useState } from "react";
 
 const Carousel = () => {
   const [slideIdx, setSlideIdx] = useState(0);
-  const [carImages, setCarImages] = useState(images);
+  const [carImages] = useState(images);
 
   const slideDot = (idx) => {
     setSlideIdx(idx);

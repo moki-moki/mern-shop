@@ -49,6 +49,7 @@ export const CardDesc = styled.div`
 
 export const CardImg = styled.img`
   width: 300px;
+  height: 300px;
   border-radius: 15px 15px 0 0;
 `;
 

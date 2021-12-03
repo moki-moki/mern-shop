@@ -1,12 +1,7 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { getShowcaseProducts } from "./thunk";
 
-export const getShowcaseProducts = createAsyncThunk(
-  "products/getShowcaseProducts",
-  async () => {
-    return fetch("/api/products").then((res) => res.json());
-  }
-); //getShowcaseProducts is a thunk that returns by default 2 things pending and fulfilled
-
+// get showcaseProducts
 const productSlice = createSlice({
   name: "products",
   initialState: {

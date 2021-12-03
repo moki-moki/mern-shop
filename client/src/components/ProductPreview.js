@@ -4,18 +4,36 @@ import {
   PrewviewContainer,
   ProductViewAllLink,
 } from "../styles/ProductPreviewStyles";
-import dummyData from "../data/dummyData.json";
 import ProductTeaser from "./ProductTeaser";
 import { Link } from "react-router-dom";
+import { getProductPreview } from "../redux/thunk";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 const ProductPreview = () => {
+  const dispatch = useDispatch();
+
+  const { list } = useSelector((state) => state.previewProducts);
+
+  useEffect(() => {
+    dispatch(getProductPreview());
+  }, [dispatch]);
+
+  console.log(list);
+
   return (
     <PrewviewContainer>
       <PreviewHeading>Some of Our Products</PreviewHeading>
       <PreviewCardContainer>
-        {dummyData.map((item, idx) => (
-          <ProductTeaser item={item} key={idx} />
-        ))}
+        {list.length === 0 ? (
+          <h1>Loading...</h1>
+        ) : (
+          <>
+            {list.products
+              .map((item, idx) => <ProductTeaser item={item} key={idx} />)
+              .slice(0, 5)}
+          </>
+        )}
         <ProductViewAllLink>
           <Link to="/allProducts">View All Products</Link>
         </ProductViewAllLink>

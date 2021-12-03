@@ -1,8 +1,5 @@
-import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 // Redux
-import { useDispatch } from "react-redux";
-import { getShowcaseProducts } from "./redux/productSlice";
 // Style
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "./styles/GlobalStyles";
@@ -16,11 +13,6 @@ import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 
 function App() {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(getShowcaseProducts());
-  // }, [dispatch]);
-
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
