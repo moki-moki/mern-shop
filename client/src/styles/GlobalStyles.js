@@ -11,6 +11,8 @@ const GlobalStyles = createGlobalStyle`
 
 body {
     background-color: ${({ theme }) => theme.colors.body};
+    min-height: 100vh;
+    position: relative;
 
 }
 h1 {

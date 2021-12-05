@@ -23,3 +23,8 @@ export const ProductPriceTag = styled.span`
 export const ProductSalePrice = styled.span`
   color: ${({ theme }) => theme.colors.price};
 `;
+
+export const ProductBtnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

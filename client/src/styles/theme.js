@@ -1,11 +1,11 @@
 const theme = {
   colors: {
-    body: "#FAF3E0",
-    headings: "#3d514d",
-    lightHeadings: "#526D68",
+    body: "#e9ecef",
+    headings: "#252422 ",
+    lightHeadings: "#4f4e4e",
     text: "#1E212D",
-    hover: "#F58840",
-    cardBg: "#f3e2b4",
+    hover: "#eb5e28 ",
+    cardBg: "#fffcf2 ",
     category: "#b7573c",
     price: "#63b73c",
   },

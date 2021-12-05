@@ -60,6 +60,15 @@ const BrandsSection = () => {
           <BrandSlide>
             <Logo3 />
           </BrandSlide>
+          <BrandSlide>
+            <Logo1 />
+          </BrandSlide>
+          <BrandSlide>
+            <Logo2 />
+          </BrandSlide>
+          <BrandSlide>
+            <Logo3 />
+          </BrandSlide>
         </BrandTrackSlider>
       </BrandContainer>
     </BrandSection>

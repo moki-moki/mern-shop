@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {
+  ProductBtnContainer,
   ProductPriceTag,
   ProductSalePrice,
   ProductTeaserCardText,
@@ -39,7 +40,10 @@ const ProductTeaser = ({ item }) => {
             </ProductTeaserCardText>
           )}
         </div>
-        <CardLink to="/allProducts">Buy</CardLink>
+        <ProductBtnContainer>
+          <CardLink to="/allProducts">Buy</CardLink>
+          <CardLink to="/allProducts">View</CardLink>
+        </ProductBtnContainer>
         {item.sale ? <CardFeatured>Sale</CardFeatured> : null}
       </CardDesc>
     </Card>

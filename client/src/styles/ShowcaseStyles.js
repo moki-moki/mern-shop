@@ -75,6 +75,7 @@ export const CardLink = styled(Link)`
   border-radius: 10px;
   padding: 0.3em;
   transition: 0.2s ease all;
+  margin: 0.3em 0;
 
   &:hover {
     border-radius: 0;
