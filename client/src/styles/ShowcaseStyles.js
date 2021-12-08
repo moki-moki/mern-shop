@@ -82,6 +82,21 @@ export const CardLink = styled(Link)`
   }
 `;
 
+export const CardBuy = styled.span`
+  border: 1px solid ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
+  border-radius: 10px;
+  padding: 0.3em;
+  transition: 0.2s ease all;
+  margin: 0.3em 0;
+  cursor: pointer;
+
+  &:hover {
+    border-radius: 0;
+    color: ${({ theme }) => theme.colors.hover};
+  }
+`;
+
 export const CardPriceTag = styled.span`
   color: ${({ theme }) => theme.colors.price};
 `;

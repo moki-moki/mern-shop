@@ -3,12 +3,10 @@ import styled from "styled-components";
 export const SidebarContainer = styled.div`
   height: 100%;
   width: 15%;
-
-  top: 0;
-  left: 0;
   background-color: ${({ theme }) => theme.colors.cardBg};
+  border-radius: 15px;
   padding: 0.5em;
-  margin: 0 1em;
+  margin: 1em;
 `;
 
 export const SidebarWrapper = styled.div`

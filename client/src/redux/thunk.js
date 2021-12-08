@@ -5,11 +5,18 @@ export const getShowcaseProducts = createAsyncThunk(
   async () => {
     return fetch("/api/products").then((res) => res.json());
   }
-); //getShowcaseProducts is a thunk that returns by default 2 things pending and fulfilled
+);
 
 export const getProductPreview = createAsyncThunk(
   "previewProducts/getProductPreview",
   async () => {
     return fetch("/api/products/allProducts").then((res) => res.json());
+  }
+);
+
+export const getSingleProduct = createAsyncThunk(
+  "singleProduct/getSingleProduct",
+  async (id) => {
+    return fetch(`/api/products/${id}`).then((res) => res.json());
   }
 );

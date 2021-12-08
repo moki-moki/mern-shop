@@ -30,7 +30,7 @@ const ProductPreview = () => {
         ) : (
           <>
             {list.products
-              .map((item, idx) => <ProductTeaser item={item} key={idx} />)
+              .map((item) => <ProductTeaser item={item} key={item._id} />)
               .slice(0, 5)}
           </>
         )}

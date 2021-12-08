@@ -1,4 +1,6 @@
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { addProduct } from "../redux/cartSlice";
 import {
   ProductBtnContainer,
   ProductPriceTag,
@@ -8,6 +10,7 @@ import {
 } from "../styles/ProductTeaserStyles";
 import {
   Card,
+  CardBuy,
   CardCategoryTag,
   CardDesc,
   CardFeatured,
@@ -18,6 +21,13 @@ import {
 } from "../styles/ShowcaseStyles";
 
 const ProductTeaser = ({ item }) => {
+  const dispatch = useDispatch();
+
+  // adds item to cart
+  const handleAddToCart = () => {
+    dispatch(addProduct({ ...item, quantity: 1 }));
+  };
+
   return (
     <Card>
       <ProductTeaserImg src={item.image} />
@@ -41,8 +51,10 @@ const ProductTeaser = ({ item }) => {
           )}
         </div>
         <ProductBtnContainer>
-          <CardLink to="/allProducts">Buy</CardLink>
-          <CardLink to="/allProducts">View</CardLink>
+          <CardBuy onClick={() => handleAddToCart()} to="/allProducts">
+            Buy
+          </CardBuy>
+          <CardLink to={`/product/${item._id}`}>View</CardLink>
         </ProductBtnContainer>
         {item.sale ? <CardFeatured>Sale</CardFeatured> : null}
       </CardDesc>

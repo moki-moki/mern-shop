@@ -9,6 +9,7 @@ import ShowcaseCards from "./ShowcaseCards";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getShowcaseProducts } from "../redux/thunk";
+import Loader from "./Loader";
 
 const Showcase = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const Showcase = () => {
       </ShowcaseHeadingContainer>
       <ShowcaseContainer>
         {posts.list.length === 0 ? (
-          <h1>Loading...</h1>
+          <Loader />
         ) : (
           <>
             {posts.list.msg.map((item, idx) => {

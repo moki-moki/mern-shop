@@ -16,6 +16,8 @@ import {
 } from "../styles/AllProductsPageStyles/SidebarStyles";
 import ProductTeaser from "./ProductTeaser";
 import { useState } from "react";
+import { getProducts, getProductsAndSort } from "../utils/userFetch";
+import Loader from "./Loader";
 
 const AllProductsPage = () => {
   const dispatch = useDispatch();
@@ -24,18 +26,19 @@ const AllProductsPage = () => {
   const [sort, setSort] = useState("");
   const { list } = useSelector((state) => state.previewProducts);
 
+  let totalStarts = 5;
+
+  const getRatings = () => {
+    const starPrecentage = (list.products.rating / totalStarts) * 100;
+    console.log(starPrecentage);
+  };
+
   // filter items by catagory
   useEffect(() => {
     dispatch(getProductPreview());
-    const getData = async () => {
-      const req = await fetch(
-        cat ? `/api/products/allProducts${cat}` : `/api/products/allProducts`
-      );
-      const data = await req.json();
-      setProd(data);
-    };
-    console.log(cat);
-    getData();
+
+    // get all products depenting on catagory
+    getProducts(cat).then((data) => setProd(data));
   }, [dispatch, cat]);
 
   const changeCat = (value) => {
@@ -92,7 +95,7 @@ const AllProductsPage = () => {
   return (
     <>
       {prod.length === 0 ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : (
         <AllProductsPageContainer>
           <SidebarContainer>
@@ -155,7 +158,7 @@ const AllProductsPage = () => {
             ) : (
               <>
                 {prod.products.map((item, idx) => (
-                  <ProductTeaser item={item} idx={idx} />
+                  <ProductTeaser key={item._id} item={item} idx={idx} />
                 ))}
               </>
             )}
