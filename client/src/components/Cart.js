@@ -6,6 +6,7 @@ import {
   TotalValue,
 } from "../styles/CartStyles/CartStyle";
 import CartItem from "./CartItem";
+import EmptyCart from "./EmptyCart";
 
 const Cart = () => {
   const products = useSelector((state) => state.cart);
@@ -22,7 +23,7 @@ const Cart = () => {
     <CartContainer>
       <CartCard>
         {products.quantity === 0 ? (
-          <h1>You're cart is empty</h1>
+          <EmptyCart />
         ) : (
           <>
             {products.products.map((item) => {

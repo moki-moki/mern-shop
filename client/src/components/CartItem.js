@@ -56,7 +56,7 @@ const CartItem = ({ item, products }) => {
 
           <CardQtyContainer>
             Qty:
-            {/* <CardSelect
+            <CardSelect
               defaultValue={0}
               onChange={(e) => handleUpdateQty(item, e.target.value)}
             >
@@ -65,7 +65,7 @@ const CartItem = ({ item, products }) => {
                   {i + 1}
                 </option>
               ))}
-            </CardSelect> */}
+            </CardSelect>
           </CardQtyContainer>
           <button onClick={() => handleDelete(item._id)}>Delete</button>
         </CardInfoWrapper>

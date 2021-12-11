@@ -16,7 +16,7 @@ import {
 } from "../styles/AllProductsPageStyles/SidebarStyles";
 import ProductTeaser from "./ProductTeaser";
 import { useState } from "react";
-import { getProducts, getProductsAndSort } from "../utils/userFetch";
+import { getProducts } from "../utils/userFetch";
 import Loader from "./Loader";
 
 const AllProductsPage = () => {
@@ -25,13 +25,6 @@ const AllProductsPage = () => {
   const [cat, setCat] = useState("?");
   const [sort, setSort] = useState("");
   const { list } = useSelector((state) => state.previewProducts);
-
-  let totalStarts = 5;
-
-  const getRatings = () => {
-    const starPrecentage = (list.products.rating / totalStarts) * 100;
-    console.log(starPrecentage);
-  };
 
   // filter items by catagory
   useEffect(() => {

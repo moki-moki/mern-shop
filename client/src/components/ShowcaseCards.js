@@ -27,7 +27,7 @@ const ShowcaseCards = ({ item }) => {
             <CardCategoryTag>Category</CardCategoryTag>: {item.category}
           </CardText>
         </div>
-        <CardLink to="/">View</CardLink>
+        <CardLink to={`/product/${item._id}`}>View</CardLink>
       </CardDesc>
       <CardFeatured>Featured</CardFeatured>
     </Card>

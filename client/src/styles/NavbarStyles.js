@@ -22,6 +22,7 @@ export const NavbarLinks = styled.ul`
 export const NavbarLinksLi = styled.li`
   cursor: pointer;
   transition: 0.2s ease color;
+  font-size: 1.3em;
 `;
 
 export const NavbarLinksAtag = styled(Link)`

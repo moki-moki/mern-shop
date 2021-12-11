@@ -11,6 +11,7 @@ import AllProductsPage from "./components/AllProductsPage";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
+import Notification from "./components/Notification";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Notification />
       {/* <Footer /> */}
     </ThemeProvider>
   );

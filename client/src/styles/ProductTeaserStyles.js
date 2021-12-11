@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 export const ProductTeaserImg = styled.img`
   width: 100%;

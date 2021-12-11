@@ -28,6 +28,7 @@ import {
   ProductPriceCatWrapper,
 } from "../styles/SingleProduct/SingleProductStyles";
 import Loader from "./Loader";
+import alertSlice from "../redux/alertSlice";
 
 const Product = () => {
   const dispatch = useDispatch();
@@ -42,6 +43,12 @@ const Product = () => {
   const handleAddToCart = () => {
     dispatch(addProduct({ ...list.msg, quantity: qty }));
     dispatch(updateQty({ ...list.msg, quantity: qty }));
+    dispatch(
+      alertSlice.actions.createAlert({
+        message: `You're item has been added to the cart :)`,
+        type: "success",
+      })
+    );
   };
 
   const handlePlusQty = () => {
@@ -51,7 +58,7 @@ const Product = () => {
       setQty(qty + 1);
     }
   };
-  console.log(list);
+
   const handleMinusQty = () => {
     if (qty === 0) {
       setQty(0);

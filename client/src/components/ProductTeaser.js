@@ -1,5 +1,4 @@
 import { useDispatch } from "react-redux";
-import styled from "styled-components";
 import { addProduct } from "../redux/cartSlice";
 import {
   ProductBtnContainer,
@@ -19,6 +18,8 @@ import {
   CardLink,
   CardPriceTag,
 } from "../styles/ShowcaseStyles";
+import alertSlice from "../redux/alertSlice";
+import Rating from "./Rating";
 
 const ProductTeaser = ({ item }) => {
   const dispatch = useDispatch();
@@ -26,6 +27,12 @@ const ProductTeaser = ({ item }) => {
   // adds item to cart
   const handleAddToCart = () => {
     dispatch(addProduct({ ...item, quantity: 1 }));
+    dispatch(
+      alertSlice.actions.createAlert({
+        message: `You're item has been added to the cart :)`,
+        type: "success",
+      })
+    );
   };
 
   return (
@@ -39,6 +46,10 @@ const ProductTeaser = ({ item }) => {
           <ProductTeaserCardText>
             <CardCategoryTag>Category</CardCategoryTag>: {item.category}
           </ProductTeaserCardText>
+          <div style={{ display: "flex" }}>
+            <Rating value={item.rating} />
+            rating: {item.rating}
+          </div>
           {item.sale ? (
             <ProductTeaserCardText>
               <ProductPriceTag> ${item.price}</ProductPriceTag>

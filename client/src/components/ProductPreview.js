@@ -19,8 +19,6 @@ const ProductPreview = () => {
     dispatch(getProductPreview());
   }, [dispatch]);
 
-  console.log(list);
-
   return (
     <PrewviewContainer>
       <PreviewHeading>Some of Our Products</PreviewHeading>
