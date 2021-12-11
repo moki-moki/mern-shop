@@ -55,18 +55,13 @@ const getAllProducts = async (req, res) => {
     result = result.select(fieldList);
   }
 
-  const products = await result;
+  const list = await result;
 
   try {
-    res.status(200).json({ products });
+    res.status(200).json(list);
   } catch (error) {
     res.status(500).json({ msg: "there was a server error" });
   }
-};
-
-const getAllProductsStatic = async (req, res) => {
-  const products = await Product.find({}).sort("price");
-  res.status(200).json({ msg: products });
 };
 
 // Get single product by Id
@@ -85,7 +80,7 @@ const getSingleProduct = async (req, res) => {
 const getShowcaseProducts = async (req, res) => {
   try {
     const product = await Product.find({}).limit(4);
-    res.status(200).json({ msg: product });
+    res.status(200).json(product);
   } catch (error) {
     console.error(error);
     res.status(500).json({ msg: "something went wrong on serverside " });
@@ -94,7 +89,6 @@ const getShowcaseProducts = async (req, res) => {
 
 module.exports = {
   getAllProducts,
-  getAllProductsStatic,
   getSingleProduct,
   getShowcaseProducts,
 };

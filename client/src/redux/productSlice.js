@@ -5,19 +5,19 @@ import { getShowcaseProducts } from "./thunk";
 const productSlice = createSlice({
   name: "products",
   initialState: {
-    list: [],
-    status: null,
+    product: [],
+    loading: null,
   },
   extraReducers: {
     [getShowcaseProducts.pending]: (state) => {
-      state.status = "loading";
+      state.loading = "loading";
     },
     [getShowcaseProducts.fulfilled]: (state, { payload }) => {
-      state.list = payload;
-      state.status = "success";
+      state.product = payload;
+      state.loading = "success";
     },
     [getShowcaseProducts.rejected]: (state, action) => {
-      state.status = "fail";
+      state.loading = "fail";
     },
   },
 });

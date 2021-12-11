@@ -7,19 +7,8 @@ import {
 } from "../styles/ShowcaseStyles";
 import ShowcaseCards from "./ShowcaseCards";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getShowcaseProducts } from "../redux/thunk";
-import Loader from "./Loader";
 
-const Showcase = () => {
-  const dispatch = useDispatch();
-
-  const posts = useSelector((state) => state.posts);
-
-  useEffect(() => {
-    dispatch(getShowcaseProducts());
-  }, [dispatch]);
-
+const Showcase = ({ posts }) => {
   return (
     <ShowcaseSection>
       <ShowcaseHeadingContainer>
@@ -27,15 +16,9 @@ const Showcase = () => {
         <CardSubHeading>Deals you shouldn't miss!</CardSubHeading>
       </ShowcaseHeadingContainer>
       <ShowcaseContainer>
-        {posts.list.length === 0 ? (
-          <Loader />
-        ) : (
-          <>
-            {posts.list.msg.map((item, idx) => {
-              return <ShowcaseCards key={idx} item={item} />;
-            })}
-          </>
-        )}
+        {posts.map((item, idx) => {
+          return <ShowcaseCards key={idx} item={item} />;
+        })}
       </ShowcaseContainer>
     </ShowcaseSection>
   );
