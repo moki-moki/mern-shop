@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import {
   CardImage,
   CardInfoContainer,
@@ -15,9 +14,9 @@ import {
 
 import { useDispatch } from "react-redux";
 
-import { addProduct, updateQty, removeItem } from "../redux/cartSlice";
+import { updateQty, removeItem } from "../redux/cartSlice";
 
-const CartItem = ({ item, products }) => {
+const CartItem = ({ item }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {

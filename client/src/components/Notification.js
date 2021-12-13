@@ -1,20 +1,16 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import {
   NotificationContainer,
   NotificationHeading,
   NotificationTextWrapper,
 } from "../styles/NotificationStyles/NotificationStyles";
-import {
-  AiOutlineCheckCircle,
-  AiOutlineCloseCircle,
-  AiOutlineSmile,
-} from "react-icons/ai";
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 
 const Notification = () => {
   const { alerts } = useSelector((state) => state.alert);
   const [alertMsg, setAlertMsg] = useState({ type: "", message: "" });
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(true);
 
   useEffect(() => {
     if (alerts.length > 0) {
@@ -29,9 +25,6 @@ const Notification = () => {
   const onClose = () => {
     setShow(false);
   };
-
-  const color = alert.type === "success" ? "teal" : "darkred";
-  // const iconUrl = alert.type === "success" ? successIcon : errorIcon;
 
   return (
     <>

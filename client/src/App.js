@@ -12,6 +12,7 @@ import Product from "./components/Product";
 import Cart from "./components/Cart";
 import Footer from "./components/Footer";
 import Notification from "./components/Notification";
+import WishList from "./components/WishList";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/allProducts" element={<AllProductsPage />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<WishList />} />
       </Routes>
       <Notification />
       <Footer />

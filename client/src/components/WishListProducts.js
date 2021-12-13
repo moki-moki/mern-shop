@@ -1,13 +1,7 @@
 import { useDispatch } from "react-redux";
+import { removeItem } from "../redux/whishListSlice";
 import { addProduct } from "../redux/cartSlice";
-import {
-  ProductBtnContainer,
-  ProductFavIconContainer,
-  ProductPriceTag,
-  ProductSalePrice,
-  ProductTeaserCardText,
-  ProductTeaserImg,
-} from "../styles/ProductTeaserStyles";
+import { MdDeleteOutline } from "react-icons/md";
 import {
   Card,
   CardBuy,
@@ -16,18 +10,28 @@ import {
   CardFeatured,
   CardHeading,
   CardHeadingContainer,
-  CardLink,
   CardPriceTag,
 } from "../styles/ShowcaseStyles";
-import alertSlice from "../redux/alertSlice";
+import {
+  ProductBtnContainer,
+  ProductFavIconContainer,
+  ProductPriceTag,
+  ProductSalePrice,
+  ProductTeaserCardText,
+  ProductTeaserImg,
+} from "../styles/ProductTeaserStyles";
 import Rating from "./Rating";
-import { AiOutlineHeart } from "react-icons/ai";
-import { addItem } from "../redux/whishListSlice";
+import alertSlice from "../redux/alertSlice";
 
-const ProductTeaser = ({ item }) => {
+const WishListProducts = ({ item }) => {
   const dispatch = useDispatch();
 
-  // adds item to cart
+  const handleRemove = (id) => {
+    // dispatch(removeItem(id));
+    dispatch(removeItem(id));
+    console.log(id);
+  };
+
   const handleAddToCart = () => {
     dispatch(addProduct({ ...item, quantity: 1 }));
 
@@ -39,22 +43,11 @@ const ProductTeaser = ({ item }) => {
     );
   };
 
-  const handleAddToWishList = () => {
-    dispatch(addItem({ ...item, quantity: 1 }));
-
-    dispatch(
-      alertSlice.actions.createAlert({
-        message: `Item was added to your wish list :)`,
-        type: "success",
-      })
-    );
-  };
-
   return (
     <Card>
       <ProductTeaserImg src={item.image} />
-      <ProductFavIconContainer onClick={() => handleAddToWishList()}>
-        <AiOutlineHeart />
+      <ProductFavIconContainer onClick={() => handleRemove(item._id)}>
+        <MdDeleteOutline />
       </ProductFavIconContainer>
       <CardHeadingContainer>
         <CardHeading>{item.name}</CardHeading>
@@ -83,7 +76,6 @@ const ProductTeaser = ({ item }) => {
           <CardBuy onClick={() => handleAddToCart()} to="/allProducts">
             Buy
           </CardBuy>
-          <CardLink to={`/product/${item._id}`}>View</CardLink>
         </ProductBtnContainer>
         {item.sale ? <CardFeatured>Sale</CardFeatured> : null}
       </CardDesc>
@@ -91,4 +83,4 @@ const ProductTeaser = ({ item }) => {
   );
 };
 
-export default ProductTeaser;
+export default WishListProducts;

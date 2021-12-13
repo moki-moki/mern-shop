@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 import {
   NavbarContainer,
   NavbarLinks,
   NavbarLinksAtag,
   NavbarLinksContainer,
   NavbarLinksLi,
-  NavbarQtyCart,
+  NavbarQtyNumber,
 } from "../styles/NavbarStyles";
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
+  const { qty } = useSelector((state) => state.wishList);
 
   return (
     <NavbarContainer>
@@ -23,6 +24,16 @@ const Navbar = () => {
           <NavbarLinksLi>
             <NavbarLinksAtag to="/allProducts"> All Products </NavbarLinksAtag>
           </NavbarLinksLi>
+          <NavbarLinksLi>
+            <NavbarLinksAtag to="/wishlist">
+              <AiOutlineHeart />
+              <span>Wish List</span>
+              <NavbarQtyNumber>
+                <span>{qty}</span>
+              </NavbarQtyNumber>
+            </NavbarLinksAtag>
+          </NavbarLinksLi>
+
           <NavbarLinksLi>
             <NavbarLinksAtag to="/cart">
               <AiOutlineShoppingCart />

@@ -4,6 +4,7 @@ import productPreviewReducer from "./productPreviewSlice";
 import singleProductReducer from "./singleProductSlice";
 import cartReducer from "./cartSlice";
 import alertSlice from "./alertSlice";
+import whishListReducer from "./whishListSlice";
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     singleProduct: singleProductReducer,
     cart: cartReducer,
     alert: alertSlice.reducer,
+    wishList: whishListReducer,
   },
 });

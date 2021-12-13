@@ -2,20 +2,14 @@ import styled from "styled-components";
 
 export const NotificationContainer = styled.div`
   position: fixed;
-  top: 50px;
-  left: 68%;
+  top: 90%;
+  left: 15px;
   width: 30%;
   height: 35px;
   margin: 0 auto;
-  background-color: #63b73c;
   border-radius: 10px;
+  background: #63b73c;
   animation: enter-leave 3s ease-in-out;
-  /* &.success {
-    background-color: #63b73c;
-  }
-  &.error {
-    background-color: #9e162f;
-  } */
 
   &::after {
     content: "";
@@ -39,19 +33,19 @@ export const NotificationContainer = styled.div`
 
   @keyframes enter-leave {
     0% {
-      top: -60px;
+      left: -260px;
       display: block;
     }
     7.5% {
-      top: 16px;
+      left: 15px;
       display: block;
     }
     92.5% {
-      top: 16px;
+      left: 15px;
       display: block;
     }
     100% {
-      top: -60px;
+      left: -360px;
       display: block;
     }
   }

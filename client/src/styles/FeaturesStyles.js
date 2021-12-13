@@ -17,8 +17,10 @@ export const FeaturesCard = styled.div`
   background: ${({ theme }) => theme.colors.cardBg};
   border-radius: 15px;
   display: flex;
-  /* align-items: center; */
   font-size: 1.3em;
+  > * {
+    color: ${({ theme }) => theme.colors.hover};
+  }
 `;
 
 export const FeaturesCardText = styled.p`

@@ -1,11 +1,32 @@
 import styled from "styled-components";
-import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 export const ProductTeaserImg = styled.img`
   width: 100%;
   height: 300px;
   object-fit: cover;
   border-radius: 15px 15px 0 0;
+`;
+
+export const ProductFavIconContainer = styled.div`
+  display: flex;
+  position: absolute;
+  border: 1px solid ${({ theme }) => theme.colors.headings};
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.cardBg};
+  top: 1%;
+  left: 88%;
+  padding: 0.5em;
+  cursor: pointer;
+  transition: 0.3s ease all;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.hover};
+    border-color: ${({ theme }) => theme.colors.hover};
+  }
+
+  &:hover > :nth-child(1) {
+    color: ${({ theme }) => theme.colors.body};
+  }
 `;
 
 export const ProductTeaserCardText = styled.p`

@@ -6,7 +6,6 @@ import {
   ShowcaseSection,
 } from "../styles/ShowcaseStyles";
 import ShowcaseCards from "./ShowcaseCards";
-import { useEffect } from "react";
 
 const Showcase = ({ posts }) => {
   return (

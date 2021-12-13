@@ -146,15 +146,10 @@ const AllProductsPage = () => {
             </SidebarWrapper>
           </SidebarContainer>
           <AllProductsContainer>
-            {status !== "success" ? (
-              <Loader />
-            ) : (
-              <>
-                {prod.map((item, idx) => (
-                  <ProductTeaser key={item._id} item={item} idx={idx} />
-                ))}
-              </>
-            )}
+            {/* Maping All  Products */}
+            {prod.map((item, idx) => (
+              <ProductTeaser key={item._id} item={item} idx={idx} />
+            ))}
           </AllProductsContainer>
         </AllProductsPageContainer>
       )}
