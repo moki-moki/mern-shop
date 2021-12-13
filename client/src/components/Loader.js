@@ -15,7 +15,8 @@ const Loader = () => {
     width: 40px;
     height: 40px;
     position: relative;
-    margin: 100px auto;
+    margin: auto;
+    top: 300px;
   `;
 
   const LoaderBubble = styled.div`

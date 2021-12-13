@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -9,11 +9,14 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Montserrat Alternates', sans-serif; 
 }
 
+html, body {
+    position: relative;
+    min-height: 100vh;
+}
+
 body {
     background-color: ${({ theme }) => theme.colors.body};
-    min-height: 100vh;
-    position: relative;
-
+    padding-bottom: 45px;
 }
 h1 {
    font-size: 3em;
@@ -60,8 +63,6 @@ button:hover {
     color: ${({ theme }) => theme.colors.text};
     border-color: ${({ theme }) => theme.colors.text}
 }
-
-
 `;
 
 export default GlobalStyles;

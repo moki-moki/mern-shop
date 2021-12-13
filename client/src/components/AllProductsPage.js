@@ -24,7 +24,7 @@ const AllProductsPage = () => {
   const [prod, setProd] = useState([]);
   const [cat, setCat] = useState("?");
   const [sort, setSort] = useState("");
-  const { list } = useSelector((state) => state.previewProducts);
+  const { list, status } = useSelector((state) => state.previewProducts);
 
   // filter items by catagory
   useEffect(() => {
@@ -77,17 +77,17 @@ const AllProductsPage = () => {
   /* TODO: Build server-side buttons instead of calling all products and removing duplicate values */
   // render out Check boxes and removing and duplicate values from list.product array of all items
   const btns =
-    list.length === 0
+    list.length === undefined
       ? null
       : [
-          ...list.products
+          ...list
             .reduce((map, obj) => map.set(obj.category, obj), new Map())
             .values(),
         ];
 
   return (
     <>
-      {prod.length === 0 ? (
+      {status !== "success" ? (
         <Loader />
       ) : (
         <AllProductsPageContainer>
@@ -146,11 +146,11 @@ const AllProductsPage = () => {
             </SidebarWrapper>
           </SidebarContainer>
           <AllProductsContainer>
-            {prod.length === 0 ? (
-              <h1>Loading..</h1>
+            {status !== "success" ? (
+              <Loader />
             ) : (
               <>
-                {prod.products.map((item, idx) => (
+                {prod.map((item, idx) => (
                   <ProductTeaser key={item._id} item={item} idx={idx} />
                 ))}
               </>

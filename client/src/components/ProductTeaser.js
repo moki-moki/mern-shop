@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../redux/cartSlice";
 import {
   ProductBtnContainer,
@@ -27,9 +27,10 @@ const ProductTeaser = ({ item }) => {
   // adds item to cart
   const handleAddToCart = () => {
     dispatch(addProduct({ ...item, quantity: 1 }));
+
     dispatch(
       alertSlice.actions.createAlert({
-        message: `You're item has been added to the cart :)`,
+        message: `Item has been added to the cart :)`,
         type: "success",
       })
     );

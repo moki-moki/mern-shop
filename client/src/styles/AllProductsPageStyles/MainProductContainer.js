@@ -10,4 +10,5 @@ export const AllProductsContainer = styled.div`
   width: 80%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 3em;
 `;

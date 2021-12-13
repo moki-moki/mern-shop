@@ -25,7 +25,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <Notification />
-      {/* <Footer /> */}
+      <Footer />
     </ThemeProvider>
   );
 }
