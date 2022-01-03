@@ -11,16 +11,73 @@ export const NavbarContainer = styled.div`
   top: 0;
   z-index: 3;
   background: ${({ theme }) => theme.colors.body};
+
+  @media (max-width: 804px) {
+    width: 100%;
+    align-items: initial;
+    /* height: ${({ isOpen }) => (isOpen ? "100vh" : "5vh")}; */
+    transition: 0.3s ease height;
+  }
+`;
+
+export const NavbarUlContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const NavbarLinksContainer = styled.div`
   width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1002px) {
+    height: 100vh;
+    width: 100%;
+    /* position: absolute; */
+  }
+`;
+
+export const Logo = styled.h3`
+  margin: 0.5em 0;
+  z-index: 4;
+`;
+
+export const HamburgerContainer = styled.div`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin: 0.5em 0;
+  z-index: 4;
+  span {
+    height: 2px;
+    width: 30px;
+    background: ${({ theme }) => theme.colors.text};
+    margin: 2px 0;
+  }
+
+  @media (max-width: 804px) {
+    display: flex;
+  }
 `;
 
 export const NavbarLinks = styled.ul`
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  background: ${({ theme }) => theme.colors.body};
+
+  @media (max-width: 804px) {
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    transition: 0.3s ease all;
+    transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100vh")});
+    position: absolute;
+  }
 `;
 
 export const NavbarLinksLi = styled.li`

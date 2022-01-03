@@ -10,7 +10,11 @@ export const ShowcaseHeading = styled.h2``;
 
 export const ShowcaseHeadingContainer = styled.div`
   padding: 0 1em;
-  margin: 0 0 1em 1em;
+  margin: 3em auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const ShowcaseContainer = styled.div`

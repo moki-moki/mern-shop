@@ -87,8 +87,34 @@ const getShowcaseProducts = async (req, res) => {
   }
 };
 
+// add product
+const addProduct = async (req, res, next) => {
+  const newProduct = new Product(req.body);
+
+  try {
+    const saveProduct = await newProduct.save();
+    res.status(200).json(saveProduct);
+  } catch (error) {
+    res.status(500).json("something went wrong");
+  }
+};
+
+// deleteProduct
+const deleteProduct = async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id);
+    if (product) {
+      res.status(200).json("product deleted");
+    }
+  } catch (error) {
+    res.status(401).json("You are not admin");
+  }
+};
+
 module.exports = {
   getAllProducts,
   getSingleProduct,
   getShowcaseProducts,
+  deleteProduct,
+  addProduct,
 };

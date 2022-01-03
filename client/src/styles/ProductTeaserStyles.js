@@ -13,8 +13,8 @@ export const ProductFavIconContainer = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.headings};
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.cardBg};
-  top: 1%;
-  left: 88%;
+  top: 3%;
+  left: 92%;
   padding: 0.5em;
   cursor: pointer;
   transition: 0.3s ease all;

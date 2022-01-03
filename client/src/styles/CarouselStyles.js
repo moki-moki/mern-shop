@@ -17,7 +17,6 @@ export const CarouselImaggesContainer = styled.div`
 `;
 
 export const CarouselImages = styled.img`
-  position: absolute;
   width: 100%;
 `;
 

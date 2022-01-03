@@ -87,16 +87,14 @@ const AllProductsPage = () => {
 
   return (
     <>
-      {status !== "success" ? (
-        <Loader />
-      ) : (
+      {list.length > 0 ? (
         <AllProductsPageContainer>
           <SidebarContainer>
             <SidebarWrapper>
               <h4>Category</h4>
               <SidebarCategoryContainer>
                 {list.length === 0 ? (
-                  <h1>Loading..</h1>
+                  <Loader />
                 ) : (
                   <>
                     {btns.map((item, idx) => {
@@ -147,11 +145,19 @@ const AllProductsPage = () => {
           </SidebarContainer>
           <AllProductsContainer>
             {/* Maping All  Products */}
-            {prod.map((item, idx) => (
-              <ProductTeaser key={item._id} item={item} idx={idx} />
-            ))}
+            {status !== "success" ? (
+              <Loader />
+            ) : (
+              <>
+                {prod.map((item, idx) => (
+                  <ProductTeaser key={item._id} item={item} idx={idx} />
+                ))}
+              </>
+            )}
           </AllProductsContainer>
         </AllProductsPageContainer>
+      ) : (
+        <Loader />
       )}
     </>
   );

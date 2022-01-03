@@ -10,7 +10,7 @@ import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 const Notification = () => {
   const { alerts } = useSelector((state) => state.alert);
   const [alertMsg, setAlertMsg] = useState({ type: "", message: "" });
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     if (alerts.length > 0) {

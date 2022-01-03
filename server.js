@@ -4,6 +4,7 @@ const connectDB = require("./db/connectDB");
 
 // Controllers
 const productRouter = require("./routes/products");
+const authRoutes = require("./routes/authRoutes");
 
 // Error checkers
 const notFound = require("./middleware/notFound");
@@ -14,10 +15,8 @@ const app = express();
 // Middleware
 app.use(express.json());
 
-// Routes
-// app.get("/", (req, res) => {});
-
 app.use("/api/products", productRouter);
+app.use("/api/auth", authRoutes);
 
 // products route
 app.use(notFound);

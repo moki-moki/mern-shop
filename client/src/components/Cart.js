@@ -37,8 +37,7 @@ const Cart = () => {
       {products.quantity === 0 ? null : (
         <CardTotalContainer>
           <div>
-            Total price:
-            <TotalValue> {getCartTotal()}</TotalValue>
+            Total price: $<TotalValue> {getCartTotal()}</TotalValue>
           </div>
           <div>
             Total item count:

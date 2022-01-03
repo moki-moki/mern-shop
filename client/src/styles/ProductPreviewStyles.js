@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PrewviewContainer = styled.div`
-  margin-bottom: 1em;
+  margin-bottom: 4em;
 `;
 
 export const PreviewHeading = styled.h2`

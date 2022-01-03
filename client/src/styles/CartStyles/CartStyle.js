@@ -24,7 +24,8 @@ export const CardItemWrapper = styled.div`
 `;
 
 export const CardImage = styled.img`
-  width: 120px;
+  width: 200px;
+  height: 200px;
   border-radius: 15px 0 0 15px;
 `;
 
