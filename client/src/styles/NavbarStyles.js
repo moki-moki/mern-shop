@@ -12,10 +12,9 @@ export const NavbarContainer = styled.div`
   z-index: 3;
   background: ${({ theme }) => theme.colors.body};
 
-  @media (max-width: 804px) {
+  @media (max-width: 1002px) {
     width: 100%;
     align-items: initial;
-    /* height: ${({ isOpen }) => (isOpen ? "100vh" : "5vh")}; */
     transition: 0.3s ease height;
   }
 `;
@@ -37,7 +36,7 @@ export const NavbarLinksContainer = styled.div`
   @media (max-width: 1002px) {
     height: 100vh;
     width: 100%;
-    /* position: absolute; */
+    position: absolute;
   }
 `;
 
@@ -52,6 +51,7 @@ export const HamburgerContainer = styled.div`
   cursor: pointer;
   margin: 0.5em 0;
   z-index: 4;
+
   span {
     height: 2px;
     width: 30px;
@@ -59,7 +59,7 @@ export const HamburgerContainer = styled.div`
     margin: 2px 0;
   }
 
-  @media (max-width: 804px) {
+  @media (max-width: 1002px) {
     display: flex;
   }
 `;
@@ -70,12 +70,16 @@ export const NavbarLinks = styled.ul`
   width: 100%;
   background: ${({ theme }) => theme.colors.body};
 
-  @media (max-width: 804px) {
+  @media (max-width: 1002px) {
+    transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100vh")});
+  }
+
+  @media (max-width: 1002px) {
     flex-direction: column;
     height: 100vh;
     align-items: center;
     transition: 0.3s ease all;
-    transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100vh")});
+    /* transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100vh")}); */
     position: absolute;
   }
 `;

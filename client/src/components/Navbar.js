@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <NavbarContainer isOpen={open}>
       <Logo>Logo</Logo>
-      <NavbarLinksContainer>
+      <NavbarLinksContainer isOpen={open}>
         <NavbarUlContainer>
           <NavbarLinks isOpen={open}>
             <NavbarLinksLi>
