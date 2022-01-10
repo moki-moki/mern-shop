@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getShowcaseProducts } from "./thunk";
+import { getShowcaseProducts } from "../thunk";
 
 // get showcaseProducts
 const productSlice = createSlice({

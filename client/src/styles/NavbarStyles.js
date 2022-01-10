@@ -79,7 +79,6 @@ export const NavbarLinks = styled.ul`
     height: 100vh;
     align-items: center;
     transition: 0.3s ease all;
-    /* transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100vh")}); */
     position: absolute;
   }
 `;

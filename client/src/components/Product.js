@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { addProduct, updateQty } from "../redux/cartSlice";
+import { addProduct, updateQty } from "../redux/slice/cartSlice";
 import { getSingleProduct } from "../redux/thunk";
 import {
   ProductPriceTag,
@@ -25,7 +25,7 @@ import {
   ProductPriceCatWrapper,
 } from "../styles/SingleProduct/SingleProductStyles";
 import Loader from "./Loader";
-import alertSlice from "../redux/alertSlice";
+import alertSlice from "../redux/slice/alertSlice";
 
 const Product = () => {
   const dispatch = useDispatch();

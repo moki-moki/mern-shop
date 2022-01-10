@@ -8,7 +8,7 @@ const {
   addProduct,
 } = require("../controllers/productController");
 
-const { verifyAdmin } = require("./verifyToken");
+const { verifyAdmin } = require("../middleware/verifyToken");
 
 router.route("/").get(getShowcaseProducts);
 router.route("/allProducts").get(getAllProducts);

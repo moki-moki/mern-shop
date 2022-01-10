@@ -12,7 +12,6 @@ export const CartCard = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* justify-content: space-evenly; */
 `;
 
 export const CardItemWrapper = styled.div`

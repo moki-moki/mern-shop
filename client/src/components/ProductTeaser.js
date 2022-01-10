@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addProduct } from "../redux/cartSlice";
+import { addProduct } from "../redux/slice/cartSlice";
 import {
   ProductBtnContainer,
   ProductFavIconContainer,
@@ -19,10 +19,10 @@ import {
   CardLink,
   CardPriceTag,
 } from "../styles/ShowcaseStyles";
-import alertSlice from "../redux/alertSlice";
+import alertSlice from "../redux/slice/alertSlice";
 import Rating from "./Rating";
 import { AiOutlineHeart } from "react-icons/ai";
-import { addItem } from "../redux/whishListSlice";
+import { addItem } from "../redux/slice/whishListSlice";
 
 const ProductTeaser = ({ item }) => {
   const dispatch = useDispatch();

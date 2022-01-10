@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productReducer from "./productSlice";
-import productPreviewReducer from "./productPreviewSlice";
-import singleProductReducer from "./singleProductSlice";
-import cartReducer from "./cartSlice";
-import alertSlice from "./alertSlice";
-import whishListReducer from "./whishListSlice";
+import productReducer from "./slice/productSlice";
+import productPreviewReducer from "./slice/productPreviewSlice";
+import singleProductReducer from "./slice/singleProductSlice";
+import cartReducer from "./slice/cartSlice";
+import alertSlice from "./slice/alertSlice";
+import whishListReducer from "./slice/whishListSlice";
+import userReducer from "./user/userReducers";
 
 export default configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
     cart: cartReducer,
     alert: alertSlice.reducer,
     wishList: whishListReducer,
+    user: userReducer,
   },
 });

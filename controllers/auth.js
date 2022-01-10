@@ -1,5 +1,45 @@
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
+const {
+  generateAccessToken,
+  generateRefreshToken,
+} = require("../middleware/auth");
+
+let refreshTokenCollection = [];
+
+// REFRESH TOKEN
+exports.refreshToken = async (req, res) => {
+  const refreshToken = req.body.token;
+
+  if (refreshToken === null) {
+    return res.status(401).json("Token is null");
+  }
+
+  if (!refreshTokenCollection.includes(refreshToken)) {
+    return res
+      .status(403)
+      .json("Refresh token collection dosen't have ref token");
+  }
+
+  jwt.verify(refreshToken, "mySecret", (error, user) => {
+    if (error) {
+      console.log(error);
+    }
+    refreshTokenCollection = refreshTokenCollection.filter(
+      (token) => token !== refreshToken
+    );
+
+    const newAccessToken = generateAccessToken(user);
+    const newRefreshToken = generateRefreshToken(user);
+
+    refreshTokenCollection.push(newRefreshToken);
+
+    res.status(200).json({
+      accessToken: newAccessToken,
+      refreshToken: newRefreshToken,
+    });
+  });
+};
 
 // REGISTER USER
 exports.registerUser = async (req, res, next) => {
@@ -45,19 +85,21 @@ exports.loginUser = async (req, res, next) => {
       res.status(401).json("Invalid Credentials");
     }
 
-    const accessToken = jwt.sign(
-      {
-        id: user._id,
-        isAdmin: user.isAdmin,
-      },
-      process.env.JWT_SECRET,
-      { expiresIn: "3d" }
-    );
+    const accessToken = generateAccessToken(user);
+    const refreshToken = generateRefreshToken(user);
 
     // sending everything as response except password
     const { password: userPassword, ...other } = user._doc;
-    res.status(200).json({ ...other, accessToken });
+
+    res.status(200).json({ ...other, accessToken, refreshToken });
   } catch (error) {
     next(error);
   }
+};
+
+exports.logoutUser = async (req, res) => {
+  refreshTokenCollection = refreshTokenCollection.filter(
+    (token) => token !== req.body.token
+  );
+  res.status(200).json("LOGOUT YAYY WORK WOKR");
 };

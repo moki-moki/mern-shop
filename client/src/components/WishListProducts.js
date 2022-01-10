@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { removeItem } from "../redux/whishListSlice";
-import { addProduct } from "../redux/cartSlice";
+import { removeItem } from "../redux/slice/whishListSlice";
+import { addProduct } from "../redux/slice/cartSlice";
 import { MdDeleteOutline } from "react-icons/md";
 import {
   Card,
@@ -21,7 +21,7 @@ import {
   ProductTeaserImg,
 } from "../styles/ProductTeaserStyles";
 import Rating from "./Rating";
-import alertSlice from "../redux/alertSlice";
+import alertSlice from "../redux/slice/alertSlice";
 
 const WishListProducts = ({ item }) => {
   const dispatch = useDispatch();
