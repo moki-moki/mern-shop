@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { login } from "../../redux/thunk";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -18,11 +18,16 @@ const Login = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    login(dispatch, { email, password });
+    try {
+      login(dispatch, { email, password });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <LoginContainer>
+      {error && <h1 style={{ color: "red" }}>Error</h1>}
       <InputCotnainer onSubmit={(e) => submitHandler(e)}>
         <Input
           onChange={(e) => setEmail(e.target.value)}
@@ -43,7 +48,7 @@ const Login = () => {
       <h3>
         Don't have account? <RegisterLink to="/register">Register</RegisterLink>
       </h3>
-      {error && <h1>AAAAAAA SOMETHING IS WRONG</h1>}
+      {/* {error && errorMsg} */}
     </LoginContainer>
   );
 };

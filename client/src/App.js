@@ -21,8 +21,7 @@ function App() {
   const user = useSelector((state) => state.user.currentUser);
 
   const PrivateRoute = () => {
-    const isAuth = user;
-    return isAuth ? <Outlet /> : <Login />;
+    return user ? <Outlet /> : <Login />;
   };
 
   return (

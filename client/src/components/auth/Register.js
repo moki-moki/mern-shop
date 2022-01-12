@@ -24,7 +24,7 @@ const Register = () => {
     e.preventDefault();
     navigate("/");
     try {
-      register(dispatch, { username, email, password, isAdmin });
+      register(dispatch, { username, email, password });
     } catch (error) {
       console.log(error);
     }
@@ -54,13 +54,13 @@ const Register = () => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <SidebarSelect
+        {/* <SidebarSelect
           onChange={(e) => setIsAdmin(e.target.value)}
           defaultValue={false}
         >
           <option value={false}>Default User</option>
           <option value={true}>Admin</option>
-        </SidebarSelect>
+        </SidebarSelect> */}
         <SubmitBtn onClick={(e) => registerHandler(e)}>Register</SubmitBtn>
       </InputCotnainer>
       <h3>

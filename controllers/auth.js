@@ -75,14 +75,14 @@ exports.loginUser = async (req, res, next) => {
     const user = await User.findOne({ email }).select("+password");
 
     if (!user) {
-      return res.status(401).json("Invalid Credentials");
+      return res.status(401).json();
     }
 
     // method to find password and compare it
     const match = await user.matchPassword(password);
 
     if (!match) {
-      res.status(401).json("Invalid Credentials");
+      return res.status(401).json();
     }
 
     const accessToken = generateAccessToken(user);

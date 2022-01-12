@@ -26,17 +26,28 @@ export const login = async (dispatch, user) => {
   const postOptions = {
     method: "POST",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify({
+      email: user.email,
+      password: user.password,
+    }),
   };
-  dispatch(loginStart);
+
+  await dispatch(loginStart());
   try {
     const req = await fetch(`/api/auth/login`, postOptions);
     const data = await req.json();
-    dispatch(loginSuccess(data));
+
+    // save user in local
+    if (data) {
+      localStorage.setItem("user", JSON.stringify(data));
+    }
+
+    await dispatch(loginSuccess(data));
   } catch (error) {
-    dispatch(loginFail());
+    await dispatch(loginFail(error));
   }
 };
 

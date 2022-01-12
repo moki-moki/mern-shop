@@ -6,13 +6,14 @@ export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 3em;
+  height: 4em;
+  border-bottom: 2px solid black;
   position: sticky;
   top: 0;
   z-index: 3;
   background: ${({ theme }) => theme.colors.body};
 
-  @media (max-width: 1002px) {
+  @media (max-width: 1242px) {
     width: 100%;
     align-items: initial;
     transition: 0.3s ease height;
@@ -33,7 +34,7 @@ export const NavbarLinksContainer = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media (max-width: 1002px) {
+  @media (max-width: 1242px) {
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -43,6 +44,9 @@ export const NavbarLinksContainer = styled.div`
 export const Logo = styled.h3`
   margin: 0.5em 0;
   z-index: 4;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 `;
 
 export const HamburgerContainer = styled.div`
@@ -59,8 +63,9 @@ export const HamburgerContainer = styled.div`
     margin: 2px 0;
   }
 
-  @media (max-width: 1002px) {
+  @media (max-width: 1242px) {
     display: flex;
+    justify-content: center;
   }
 `;
 
@@ -70,11 +75,11 @@ export const NavbarLinks = styled.ul`
   width: 100%;
   background: ${({ theme }) => theme.colors.body};
 
-  @media (max-width: 1002px) {
+  @media (max-width: 1242px) {
     transform: translateY(${({ isOpen }) => (isOpen ? "0" : "-100vh")});
   }
 
-  @media (max-width: 1002px) {
+  @media (max-width: 1242px) {
     flex-direction: column;
     height: 100vh;
     align-items: center;

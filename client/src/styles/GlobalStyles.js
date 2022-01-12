@@ -60,7 +60,7 @@ button {
 }
 
 button:hover {
-    color: ${({ theme }) => theme.colors.text};
+    color: ${({ theme }) => theme.colors.hover};
     border-color: ${({ theme }) => theme.colors.text}
 }
 `;

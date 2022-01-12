@@ -22,6 +22,11 @@ const Navbar = () => {
     setOpen(!open);
   };
 
+  const handleSignOut = () => {
+    localStorage.removeItem("user");
+    window.location.reload();
+  };
+
   return (
     <NavbarContainer isOpen={open}>
       <Logo>Logo</Logo>
@@ -48,6 +53,9 @@ const Navbar = () => {
                 <AiOutlineShoppingCart />
                 <span> {quantity} </span>
               </NavbarLinksAtag>
+            </NavbarLinksLi>
+            <NavbarLinksLi>
+              <button onClick={() => handleSignOut()}>Sign Out</button>
             </NavbarLinksLi>
           </NavbarLinks>
         </NavbarUlContainer>
