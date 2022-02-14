@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <LoginContainer>
-      {error && <h1 style={{ color: "red" }}>Error</h1>}
+      {error && <h1 style={{ color: "#9b2828" }}>Wrong email or password</h1>}
       <InputCotnainer onSubmit={(e) => submitHandler(e)}>
         <Input
           onChange={(e) => setEmail(e.target.value)}

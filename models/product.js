@@ -44,7 +44,6 @@ const productSchema = new mongoose.Schema({
       values: ["bedroom", "kitchen", "tech", "coffee", "office"],
       message: "{VALUE} is not supported",
     },
-    // enum: ['bedroom', 'kitchen', 'tech', 'coffee', office],
   },
 });
 

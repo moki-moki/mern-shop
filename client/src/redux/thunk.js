@@ -52,6 +52,7 @@ export const login = async (dispatch, user) => {
 };
 
 export const register = async (dispatch, user) => {
+  console.log(user);
   const postOptions = {
     method: "POST",
     headers: {

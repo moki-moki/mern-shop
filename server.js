@@ -10,7 +10,38 @@ const authRoutes = require("./routes/authRoutes");
 const notFound = require("./middleware/notFound");
 const errorMiddleware = require("./middleware/errorHandler");
 
+const path = require("path");
+const multer = require("multer");
+const helmet = require("helmet");
+const morgan = require("morgan");
+
 const app = express();
+
+// upload
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
+app.use(helmet());
+app.use(morgan("common"));
+
+// func for uploading
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  try {
+    return res.status(200).json("file was uploaded");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 // Middleware
 app.use(express.json());

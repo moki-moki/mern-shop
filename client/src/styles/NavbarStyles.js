@@ -29,7 +29,7 @@ export const NavbarUlContainer = styled.div`
 `;
 
 export const NavbarLinksContainer = styled.div`
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,7 +45,6 @@ export const Logo = styled.h3`
   margin: 0.5em 0;
   z-index: 4;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 `;
 
@@ -61,6 +60,7 @@ export const HamburgerContainer = styled.div`
     width: 30px;
     background: ${({ theme }) => theme.colors.text};
     margin: 2px 0;
+    transition: 0.3s ease all;
   }
 
   @media (max-width: 1242px) {

@@ -16,18 +16,25 @@ import WishList from "./components/WishList";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import { useSelector } from "react-redux";
+import AddProduct from "./components/AddProduct";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
+
+  console.log(user);
 
   const PrivateRoute = () => {
     return user ? <Outlet /> : <Login />;
   };
 
+  const AdminRoute = () => {
+    return user && user.isAdmin ? <AddProduct /> : <Homepage />;
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      {user ? <Navbar /> : null}
+      {user ? <Navbar admin={user.isAdmin} /> : null}
       <Routes>
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<Homepage />} />
@@ -35,6 +42,10 @@ function App() {
           <Route path="/product/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/wishlist" element={<WishList />} />
+        </Route>
+        {/* Admin Route */}
+        <Route element={<AdminRoute />}>
+          <Route path="/addProduct" element={<AddProduct />} />
         </Route>
         <Route path="/login" element={user ? <Homepage /> : <Login />} />
         <Route

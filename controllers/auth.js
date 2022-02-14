@@ -43,7 +43,7 @@ exports.refreshToken = async (req, res) => {
 
 // REGISTER USER
 exports.registerUser = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, password, isAdmin } = req.body;
 
   if (!email || !password || !username) {
     return res.status(400).json("Pls provide email, password, username");
@@ -53,6 +53,7 @@ exports.registerUser = async (req, res, next) => {
     username,
     email,
     password,
+    isAdmin,
   });
 
   try {

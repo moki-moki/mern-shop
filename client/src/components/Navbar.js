@@ -13,7 +13,7 @@ import {
 } from "../styles/NavbarStyles";
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ admin }) => {
   const quantity = useSelector((state) => state.cart.quantity);
   const { qty } = useSelector((state) => state.wishList);
   const [open, setOpen] = useState(false);
@@ -39,6 +39,12 @@ const Navbar = () => {
             <NavbarLinksLi>
               <NavbarLinksAtag to="/allProducts">All Products</NavbarLinksAtag>
             </NavbarLinksLi>
+            {/* admin */}
+            {admin ? (
+              <NavbarLinksLi>
+                <NavbarLinksAtag to="/addProduct">Add Product</NavbarLinksAtag>
+              </NavbarLinksLi>
+            ) : null}
             <NavbarLinksLi>
               <NavbarLinksAtag to="/wishlist">
                 <AiOutlineHeart />
@@ -62,9 +68,13 @@ const Navbar = () => {
       </NavbarLinksContainer>
 
       <HamburgerContainer onClick={() => toggleNavbar()}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span
+          style={
+            open ? { transform: "rotate(45deg)", position: "absolute" } : null
+          }
+        ></span>
+        <span style={open ? { display: "none" } : null}></span>
+        <span style={open ? { transform: "rotate(-45deg)" } : null}></span>
       </HamburgerContainer>
     </NavbarContainer>
   );
