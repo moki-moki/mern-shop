@@ -23,6 +23,7 @@ import alertSlice from "../redux/slice/alertSlice";
 import Rating from "./Rating";
 import { AiOutlineHeart } from "react-icons/ai";
 import { addItem } from "../redux/slice/whishListSlice";
+import { ImGift } from "react-icons/im";
 
 const ProductTeaser = ({ item }) => {
   const dispatch = useDispatch();
@@ -52,7 +53,13 @@ const ProductTeaser = ({ item }) => {
 
   return (
     <Card>
-      <ProductTeaserImg src={item.image} />
+      <ProductTeaserImg
+        src={
+          !item.image.includes("images.unsplash")
+            ? `http://localhost:5000/images/${item.image}`
+            : item.image
+        }
+      />
       <ProductFavIconContainer onClick={() => handleAddToWishList()}>
         <AiOutlineHeart />
       </ProductFavIconContainer>

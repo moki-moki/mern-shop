@@ -21,8 +21,6 @@ import AddProduct from "./components/AddProduct";
 function App() {
   const user = useSelector((state) => state.user.currentUser);
 
-  console.log(user);
-
   const PrivateRoute = () => {
     return user ? <Outlet /> : <Login />;
   };
@@ -44,6 +42,7 @@ function App() {
           <Route path="/wishlist" element={<WishList />} />
         </Route>
         {/* Admin Route */}
+
         <Route element={<AdminRoute />}>
           <Route path="/addProduct" element={<AddProduct />} />
         </Route>

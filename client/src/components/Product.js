@@ -64,6 +64,8 @@ const Product = () => {
     }
   };
 
+  console.log(list);
+
   return (
     <>
       {list.msg === undefined ? (
@@ -71,7 +73,13 @@ const Product = () => {
       ) : (
         <SingleProductContainer>
           <ImageContainer>
-            <Image src={list.msg.image} />
+            <Image
+              src={
+                !list.msg.image.includes("images.unsplash")
+                  ? `http://localhost:5000/images/${list.msg.image}`
+                  : list.msg.image
+              }
+            />
           </ImageContainer>
           <ProductInfoContainer>
             <ProductHeadingContainer>

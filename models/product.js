@@ -11,11 +11,11 @@ const productSchema = new mongoose.Schema({
   },
   inStock: {
     type: Number,
+    default: 5,
     required: true,
   },
   sale: {
     type: Number,
-    required: false,
   },
   description: {
     type: String,
@@ -31,7 +31,7 @@ const productSchema = new mongoose.Schema({
   },
   rating: {
     type: Number,
-    default: 4.5,
+    default: 0,
     required: true,
   },
   createdAt: {

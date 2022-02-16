@@ -17,6 +17,7 @@ const morgan = require("morgan");
 
 const app = express();
 
+app.use(express.json());
 // upload
 app.use("/images", express.static(path.join(__dirname, "public/images")));
 
@@ -44,7 +45,6 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 });
 
 // Middleware
-app.use(express.json());
 
 app.use("/api/products", productRouter);
 app.use("/api/auth", authRoutes);

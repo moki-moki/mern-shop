@@ -90,7 +90,6 @@ const getShowcaseProducts = async (req, res) => {
 // add product
 const addProduct = async (req, res, next) => {
   const newProduct = new Product(req.body);
-
   try {
     const saveProduct = await newProduct.save();
     res.status(200).json(saveProduct);
