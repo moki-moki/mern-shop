@@ -7,7 +7,6 @@ import {
 } from "../styles/CarouselStyles";
 import { images } from "../data/images";
 import { useState } from "react";
-import img from "../data/Component1.png";
 
 const Carousel = () => {
   const [slideIdx, setSlideIdx] = useState(0);

@@ -35,9 +35,10 @@ export const NavbarLinksContainer = styled.div`
   align-items: center;
 
   @media (max-width: 1242px) {
-    height: 100vh;
     width: 100%;
     position: absolute;
+    z-index: ${({ isOpen }) => (isOpen ? "1" : "-1")};
+    height: ${({ isOpen }) => (isOpen ? "100vh" : "0")};
   }
 `;
 

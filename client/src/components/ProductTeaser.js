@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../redux/slice/cartSlice";
 import {
   ProductBtnContainer,
@@ -7,6 +7,7 @@ import {
   ProductSalePrice,
   ProductTeaserCardText,
   ProductTeaserImg,
+  ProductDeleteIconContainer,
 } from "../styles/ProductTeaserStyles";
 import {
   Card,
@@ -21,12 +22,14 @@ import {
 } from "../styles/ShowcaseStyles";
 import alertSlice from "../redux/slice/alertSlice";
 import Rating from "./Rating";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiOutlineDelete } from "react-icons/ai";
 import { addItem } from "../redux/slice/whishListSlice";
-import { ImGift } from "react-icons/im";
+import { deleteProduct } from "../utils/userFetch";
 
 const ProductTeaser = ({ item }) => {
   const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user.currentUser);
 
   // adds item to cart
   const handleAddToCart = () => {
@@ -51,6 +54,10 @@ const ProductTeaser = ({ item }) => {
     );
   };
 
+  const permaDeleteProduct = (id, verifyToken) => {
+    deleteProduct(id, verifyToken);
+  };
+
   return (
     <Card>
       <ProductTeaserImg
@@ -60,9 +67,16 @@ const ProductTeaser = ({ item }) => {
             : item.image
         }
       />
-      <ProductFavIconContainer onClick={() => handleAddToWishList()}>
+      <ProductFavIconContainer onClick={handleAddToWishList}>
         <AiOutlineHeart />
       </ProductFavIconContainer>
+      {user.isAdmin ? (
+        <ProductDeleteIconContainer>
+          <AiOutlineDelete
+            onClick={() => permaDeleteProduct(item._id, user.accessToken)}
+          />
+        </ProductDeleteIconContainer>
+      ) : null}
       <CardHeadingContainer>
         <CardHeading>{item.name}</CardHeading>
       </CardHeadingContainer>
@@ -87,7 +101,7 @@ const ProductTeaser = ({ item }) => {
           )}
         </div>
         <ProductBtnContainer>
-          <CardBuy onClick={() => handleAddToCart()} to="/allProducts">
+          <CardBuy onClick={handleAddToCart} to="/allProducts">
             Buy
           </CardBuy>
           <CardLink to={`/product/${item._id}`}>View</CardLink>

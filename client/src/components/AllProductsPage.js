@@ -149,8 +149,8 @@ const AllProductsPage = () => {
               <Loader />
             ) : (
               <>
-                {prod.map((item, idx) => (
-                  <ProductTeaser key={item._id} item={item} idx={idx} />
+                {prod.map((item) => (
+                  <ProductTeaser key={item._id} item={item} />
                 ))}
               </>
             )}

@@ -28,7 +28,6 @@ export const createProduct = async (
   sale,
   verifyToken
 ) => {
-  console.log(verifyToken);
   try {
     await fetch("/api/products/addProduct", {
       method: "POST",
@@ -45,6 +44,21 @@ export const createProduct = async (
         sale,
       }),
     });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteProduct = async (id, verifyToken) => {
+  try {
+    await fetch(`/api/products/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        token: `Bearer ${verifyToken}`,
+        "Content-Type": "application/json",
+      },
+    });
+    await window.location.reload();
   } catch (error) {
     console.log(error);
   }

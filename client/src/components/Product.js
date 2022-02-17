@@ -64,8 +64,6 @@ const Product = () => {
     }
   };
 
-  console.log(list);
-
   return (
     <>
       {list.msg === undefined ? (
@@ -103,21 +101,19 @@ const Product = () => {
               <ProductInfoInputContainer>
                 <ProductInfoButtonPlus
                   disabled={qty >= list.msg.inStock}
-                  onClick={() => handlePlusQty()}
+                  onClick={handlePlusQty}
                 >
                   +
                 </ProductInfoButtonPlus>
                 <ProductInfoQty>{qty}</ProductInfoQty>
                 <ProductInfoButtonMinus
                   disabled={qty === 0}
-                  onClick={() => handleMinusQty()}
+                  onClick={handleMinusQty}
                 >
                   -
                 </ProductInfoButtonMinus>
               </ProductInfoInputContainer>
-              <ProductBuyBtn onClick={() => handleAddToCart()}>
-                Buy
-              </ProductBuyBtn>
+              <ProductBuyBtn onClick={handleAddToCart}>Buy</ProductBuyBtn>
             </ProductInfoInputWrapper>
             <p>{list.msg.description}</p>
           </ProductInfoContainer>

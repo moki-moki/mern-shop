@@ -29,6 +29,28 @@ export const ProductFavIconContainer = styled.div`
   }
 `;
 
+export const ProductDeleteIconContainer = styled.div`
+  display: flex;
+  position: absolute;
+  border: 1px solid ${({ theme }) => theme.colors.headings};
+  border-radius: 50%;
+  background-color: ${({ theme }) => theme.colors.cardBg};
+  top: 15%;
+  left: 92%;
+  padding: 0.5em;
+  cursor: pointer;
+  transition: 0.3s ease all;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.hover};
+    border-color: ${({ theme }) => theme.colors.hover};
+  }
+
+  &:hover > :nth-child(1) {
+    color: ${({ theme }) => theme.colors.body};
+  }
+`;
+
 export const ProductTeaserCardText = styled.p`
   font-size: 1rem;
   font-weight: 500;
