@@ -1,7 +1,7 @@
 # Demo
 My personal project e-commerce.
 
-https://user-images.githubusercontent.com/88168610/146543324-614fcc54-ae97-436c-98b2-e0ba84f8186a.mp4
+https://user-images.githubusercontent.com/88168610/155994027-42851a2a-756f-4c5c-a1d7-068c9878383b.mp4
 
 # TODO
 - [x] Add Login/Register
